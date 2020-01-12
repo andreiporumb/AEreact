@@ -1,6 +1,7 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 
+
 export default class Checkout extends React.Component {
   onToken = (token, addresses) => {
     // TODO: Send the token information and any other
@@ -11,6 +12,7 @@ export default class Checkout extends React.Component {
   };
 
   render() {
+    window.performance.mark('ChartMountStart');
     return (
       <StripeCheckout
         stripeKey="pk_test_UGHLc1lLHKxICr6V35xGDcn300VOesSocs"
@@ -18,4 +20,9 @@ export default class Checkout extends React.Component {
       />
     )
   }
+componentDidMount() {
+    window.performance.mark('ChartMountEnd');
+  }
+
+
 }
